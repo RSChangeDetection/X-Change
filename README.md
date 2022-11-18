@@ -126,7 +126,7 @@ Datasets of Change Detection
 """
 ```
 
-Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` , $\bold{or}$ you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
+Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` , **or** you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
 
 `A` means the directory of pre-changed images
 
