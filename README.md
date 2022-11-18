@@ -2,7 +2,7 @@
 
 ## :speech_balloon: Network Architecture
 
-![image-overallarchitecture](README.assets/change_detection_cvpr2023_01.png)
+![image-overallarchitecture](Images/change_detection_cvpr2023_01.png)
 
  ## :speech_balloon: Quantitative & Qualitative Results on LEVIR-CD, DSIFN-CD and S2Looking
 
