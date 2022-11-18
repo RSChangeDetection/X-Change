@@ -53,20 +53,6 @@ python test.py
 
 After that, you can find the detection results in `result`
 
-## :speech_balloon: Quick Start on DSIFN and S2Looking
-
-You can download the processed [`DSIFN-CD-256`](https://www.dropbox.com/sh/i54h8kkpgar1s07/AACK5_jLGS3cP9ocgOMEUJcNa?dl=0). 
-
-Our $\mathcal{X}$-Change pretrained model weights are available at  [`Google Driver`](https://drive.google.com/file/d/1tYtNvAz2BUaIPwDBJy2_ylSjY97Ov2z5/view?usp=sharing).
-
-After downloading the pretrained model, you should change `--checkpoint_path`
-
-Then, start with running DSIFN dataset or S2Looking dataset for test as follows:
-
-```bash
-python test.py
-```
-
 ## :speech_balloon: Train on LEVIR
 
 We initialize the parameters of model's backbone with model pre-trained on ImageNet,  $i.e.$ $ResNets$.
@@ -116,7 +102,7 @@ python test.py --save_result --save_iou_map --root='test_samples/' --checkpoint_
 
 Follow the similar procedure mentioned for LEVIR. Run `sample_test.sh`  to evaluate on DSIFN or S2Looking after modifying `checkpoint_path`, and the items you are supposed to change can be found in the paper.  
 
-**Note:** We don't provide samples of DSIFN and S2Looking, samples from these two datasets should be put by yourself.
+**Note:** Samples from the DSIFN and S2Looking databases should be entered by the user as we do not offer weights or samples for these datasets. For testing and evaluation, you must first train your own DSIFN and S2Looking weight.
 
 The warning in training is also need to be noted.
 
@@ -140,7 +126,7 @@ Datasets of Change Detection
 """
 ```
 
-Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` , **or** you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
+Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` , $\bold{or}$ you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
 
 `A` means the directory of pre-changed images
 
