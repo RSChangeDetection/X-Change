@@ -37,15 +37,31 @@ git clone https://github.com/RSChangeDetection/X-Cross.git
 cd X-Cross
 ```
 
+## :speech_balloon: Download Dataset
+
+You can download the datasets at the link below:
+
+`LEVIR-CD`: [`click here to download`](https://justchenhao.github.io/LEVIR/)
+
+`DSIFN-CD`:  [`click here to download`](https://github.com/GeoZcx/A-deeply-supervised-image-fusion-network-for-change-detection-in-remote-sensing-images/tree/master/dataset)
+
+`S2Looking`: [`click here to download`](https://github.com/S2Looking/Dataset)
+
+You can also download the pre-processed datasets at the link below for training:
+
+`LEVIR-CD-256`: [`click here to download`](https://www.dropbox.com/sh/lnjxpflvgjijwoj/AAAgWr3xgOjqtTWPVpbLVcfNa?dl=0)
+
+`DSIFN-CD-256`: [`click here to download`](https://www.dropbox.com/sh/i54h8kkpgar1s07/AACK5_jLGS3cP9ocgOMEUJcNa?dl=0)
+
+**PS**: The downloaded dataset's organization differs from ours, thus you cannot conduct the training procedure directly with it. Please refer to [Dataset Preparation](#jump). 
+
 ## :speech_balloon: Quick Start on LEVIR
 
-You can download the processed [`LEVIR-CD-256`](https://www.dropbox.com/sh/lnjxpflvgjijwoj/AAAgWr3xgOjqtTWPVpbLVcfNa?dl=0). 
+Our $\mathcal{X}$-Change pre-trained model weights are available at  [`Google Driver`](https://drive.google.com/drive/folders/1Bo4KEd_znjRCRWX520pjohFJazxzvPCe?usp=sharing). 
 
-Our $\mathcal{X}$-Change pretrained model weights are available at  [`Google Driver`](https://drive.google.com/file/d/1tYtNvAz2BUaIPwDBJy2_ylSjY97Ov2z5/view?usp=sharing). 
+After downloading the pre-trained model, you should change `--checkpoint_path`
 
-After downloading the pretrained model, you should change `--checkpoint_path`
-
-Then, start with running LEVIR dataset testing as follows:
+Then, start with running `LEVIR` dataset testing as follows:
 
 ```bash
 python test.py
@@ -74,7 +90,7 @@ python train.py --epoch={_epoch_num_} --lr={_learning_rate_} --enable_x_cross --
 
 ## :speech_balloon: Train on DSIFN and S2Looking
 
-Follow the similar procedure mentioned for LEVIR. Run `train_pipeline.sh`  to train on DSIFN or S2Looking after modifying `lr`、`root`, and the items you are supposed to change can be found in the paper.  
+Follow the similar procedure mentioned for `LEVIR`. Run `train_pipeline.sh`  to train on `DSIFN` or `S2Looking` after modifying `lr`、`root`, and the items you are supposed to change can be found in the paper.  
 
 **Note:** There may also exists some parameters need you to modify following the `train_pipeline.sh`. Please make sure you have modified all these parameters properly.
 
@@ -88,7 +104,7 @@ You can find the evaluation script file `sample_test.sh` in the folder `script`.
 bash sample_test.sh
 ```
 
-**Note:** You should download the [`weights`]()  first, and modify the `sample_test.sh` before you run it.
+**Note:** You should download the [`weights`](https://drive.google.com/drive/folders/1Bo4KEd_znjRCRWX520pjohFJazxzvPCe?usp=sharing)  first, and modify the `sample_test.sh` before you run it.
 
 Details of `sample_test.sh` are as follows:
 
@@ -100,13 +116,13 @@ python test.py --save_result --save_iou_map --root='test_samples/' --checkpoint_
 
 ## Evaluate on DSIFN and S2Looking
 
-Follow the similar procedure mentioned for LEVIR. Run `sample_test.sh`  to evaluate on DSIFN or S2Looking after modifying `checkpoint_path`, and the items you are supposed to change can be found in the paper.  
+Follow the similar procedure mentioned for `LEVIR`. Run `sample_test.sh`  to evaluate on `DSIFN` or `S2Looking` after modifying `checkpoint_path`, and the items you are supposed to change can be found in the paper.  
 
-**Note:** Samples from the DSIFN and S2Looking databases should be entered by the user as we do not offer weights or samples for these datasets. For testing and evaluation, you must first train your own DSIFN and S2Looking weight.
+**Note:** Samples from the `DSIFN` and `S2Looking` databases should be entered by the user as we do not offer weights or samples for these datasets. For testing and evaluation, you must first train your own `DSIFN` and `S2Looking` weight.
 
 The warning in training is also need to be noted.
 
-## :speech_balloon: Dataset Preparation
+## :speech_balloon: <span id="jump">Dataset Preparation</span>
 
 ### :point_right: Data Structure
 
@@ -126,7 +142,7 @@ Datasets of Change Detection
 """
 ```
 
-Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` , **or** you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
+Your dataset are wished to be like this, and you can turn the organization to this according to label file  `**.txt` in `list` , **or** you can modify `change_dataloader.py` in `change` and `train.py`  to adapt to your datasets organization style.
 
 `A` means the directory of pre-changed images
 
